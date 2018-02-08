@@ -1,4 +1,7 @@
 function guy() {
+	//this.red = 255 - seconds * 5;
+	//this.blu = seconds * 5;
+
 	this.y = height/2;
 	this.x = width/2;
 
@@ -11,7 +14,7 @@ function guy() {
 	this.lives = 3;
 
 	this.show = function() {
-		fill(255, 0, 0);
+		fill(abs(255 - seconds * 5), 0, abs(seconds * 5));
 		noStroke();
 		rect(this.x, this.y, 32, 32);
 	}
@@ -42,14 +45,16 @@ function guy() {
 			bomb.speedy = 0;
 			bomb.speedx = 0;
 
+
 			textSize(50);
 			text("GAME OVER", 100, 100);
+			noLoop();
 		}
 	}
 
 
 	this.update = function() {
-		this.lift = random(-5, -20);
+		this.lift = -15;
 		this.velocity += this.gravity;
 		this.y += this.velocity;
 
@@ -66,6 +71,12 @@ function guy() {
 		if(this.x >= width - 52) {
 			this.lives -= 1;
 		}
+
+		/*if(this.red <= 0 && this.blu >= 255) {
+			this.red += seconds * 5;
+			this.blu -= seconds * 5;
+		}*/ 
+
 	}
 
 	this.health = function() {

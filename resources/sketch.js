@@ -1,16 +1,35 @@
+var seconds = 0;
+var minutes = 0;
+
+
 function preload() {
 
 }
 var guy;
 function setup() {
 	createCanvas(600, 600);
+
 	guy = new guy();
 	bomb = new bomb();
 	platform = new platform();
-	timer = new timer();
+
+	function timeIt() {
+		seconds ++;
+		if(seconds >= 60) {
+			minutes ++;
+			seconds = 0;
+		}
+
+	}
+	setInterval(timeIt, 1000);
+	if(guy.lives <= 0) {
+		setInterval(timeIt, 0);
+	}
+
 }
 function draw() {
-	background(135, 206, 235);
+	background(abs(seconds * 5), 0, abs(255 - seconds * 5));
+
 	//SPIKEZ
 	for(var i = 0; i < 60; i++) {
 
@@ -24,8 +43,10 @@ function draw() {
 		//bottom spikes
 		triangle(i * 10, 600, 10 + i * 10, 600, i * 10 - 5, 580);
 	}
-	timer.show();
-	timer.update();
+	textSize(20);
+	fill(0);
+	text("time alive: " + minutes + ":" + nf(seconds, 2), 440, 50);
+
 	bomb.show();
 	bomb.update();
 	bomb.explode();
@@ -45,7 +66,6 @@ function draw() {
 
 
 
-	//console.log(guy.thrust);
 }
 
 
