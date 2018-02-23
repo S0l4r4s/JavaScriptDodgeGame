@@ -60,22 +60,29 @@ function guy() {
 
 		if(this.y >= height - 52) {
 			this.lives -= 1;
-
+			this.y = height/2;
+			this.x = width/2;
 		}
 		if(this.y <= 20) {
 			this.lives -= 1;
+			this.y = height/2;
+			this.x = width/2;
 		}
 		if(this.x <= 20) {
 			this.lives -= 1;
+			this.y = height/2;
+			this.x = width/2;
 		}
 		if(this.x >= width - 52) {
 			this.lives -= 1;
+			this.y = height/2;
+			this.x = width/2;
 		}
 
 		/*if(this.red <= 0 && this.blu >= 255) {
 			this.red += seconds * 5;
 			this.blu -= seconds * 5;
-		}*/ 
+		}*/
 
 	}
 

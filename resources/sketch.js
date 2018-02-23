@@ -30,6 +30,12 @@ function setup() {
 function draw() {
 	background(abs(seconds * 5), 0, abs(255 - seconds * 5));
 
+	//debug lines
+	/*for(var I = 0; I < 12; I++) {
+		stroke(255);
+		line(50 * I, 0, 50 * I, 600);
+		line(0, 50 * I, 600, 50 * I);
+	}*/
 	//SPIKEZ
 	for(var i = 0; i < 60; i++) {
 
